@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>先喝道 端午節活動</title>
+    <title>先喝道 團購點餐系統</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -77,7 +77,6 @@
 </head>
 <body class="min-h-screen p-4 md:p-8 flex justify-center items-start">
 
-    <!-- 統一格式的蓋台確認與引導彈出視窗 -->
     <div id="alertOverlay" class="p-4">
         <div id="alertCard" class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border-t-8 border-rose-600 space-y-4 text-center">
             <div id="alertIconContainer" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-rose-100 text-rose-700">
@@ -115,13 +114,15 @@
 
     <div class="w-full max-w-xl bg-white shadow-md rounded-xl overflow-hidden border border-[#C4C8C5]">
         <div class="bg-[#4F6B6B] text-white p-6">
-            <h1 class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-2">
-                <i data-lucide="coffee"></i> 先喝道 6/17(三)端午節活動訂飲料
+            <!-- 更新後的標題區塊 -->
+            <div class="text-sm font-bold tracking-widest text-[#EAEBE6] mb-1 opacity-90">6/17(三)端午節活動訂飲料</div>
+            <h1 class="text-3xl font-bold tracking-wider flex items-center gap-2 mb-2">
+                <i data-lucide="coffee" class="w-7 h-7"></i> 先喝道
             </h1>
             <div class="text-sm space-y-1 mt-4 font-medium text-gray-100">
                 <p class="flex items-center gap-2"><i data-lucide="dollar-sign" class="w-4 h-4"></i> 每人預算 $150，超過需自行補貼</p>
                 <p class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 截止時間：115/06/12(五) 中午 12:00</p>
-                <p class="flex items-center gap-2"><i data-lucide="user" class="w-4 h-4"></i> 逾期或有問題請洽：宇均</p>
+                <p class="flex items-center gap-2"><i data-lucide="user" class="w-4 h-4"></i> 逾期或問題請洽：宇均</p>
             </div>
         </div>
 
