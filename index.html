@@ -3,475 +3,684 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2/5(四)年會總綵排人員訂飲料</title>
+    <title>先喝道 團購點餐系統</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root {
-            /* 重新定義：暖木大地配色 */
-            --primary-color: #6d4c41;    /* 溫暖木質深棕 */
-            --accent-color: #d4a373;     /* 焦糖暖金 */
-            --bg-color: #fefae0;         /* 奶油米白背景 */
-            --card-bg: #ffffff;          /* 純白卡片 */
-            --text-main: #3d405b;        /* 深石藍灰文字 */
-            --text-sub: #8d99ae;         /* 灰藍色細節 */
-            --border-color: #e9edc9;     /* 淺橄欖綠邊框 */
-            --success-color: #adc178;    /* 鼠尾草綠 */
-            --error-color: #e07a5f;      /* 磚橘紅 */
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px 15px 80px 15px;
-            color: var(--text-main);
-            line-height: 1.8;
-            -webkit-text-size-adjust: 100%;
+            font-family: 'Helvetica Neue', Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #EAEBE6;
+            color: #2C3333;
         }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(109, 76, 65, 0.08);
-            width: 100%;
-            box-sizing: border-box;
-            position: relative;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        @media (max-width: 480px) {
-            .container { padding: 30px 20px; }
-            header p.main-title { font-size: 1.4em !important; }
+        ::-webkit-scrollbar-thumb {
+            background: #C4C8C5;
+            border-radius: 4px;
         }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        header p { margin: 0; line-height: 1.4; }
-
-        /* 主標題 */
-        header p.main-title {
-            font-weight: 800;
-            font-size: 1.53em;
-            color: var(--primary-color);
-            margin-bottom: 6px;
-        }
-
-        /* 截止時間 */
-        .deadline-notice {
-            color: var(--error-color);
-            font-size: 0.85em;
-            font-weight: 500;
-            display: inline-block;
-            background: rgba(224, 122, 95, 0.1);
-            padding: 2px 14px;
-            border-radius: 30px;
-            margin-bottom: 8px;
-        }
-
-        /* 飲料店名 */
-        h1.brand-name {
-            color: var(--accent-color);
-            margin: 0;
-            font-size: 1.06em; 
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .form-group { margin-bottom: 28px; }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            font-size: 0.95em;
-            color: var(--primary-color);
-        }
-
-        input, select {
-            width: 100%;
-            padding: 14px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            font-size: 16px !important;
-            box-sizing: border-box;
-            background-color: #fafaf8;
-            color: var(--text-main);
+        select, input[type="text"] {
             appearance: none;
-            transition: all 0.3s ease;
+            background-color: #FFFFFF;
+            border: 1px solid #C4C8C5;
+            border-radius: 0.375rem;
+            color: #2C3333;
+            font-weight: 500;
         }
-
-        input:focus, select:focus {
+        select:focus, input:focus {
             outline: none;
-            border-color: var(--accent-color);
-            background-color: #fff;
-            box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
+            border-color: #4F6B6B;
+            box-shadow: 0 0 0 1px #4F6B6B;
         }
-
-        select {
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23d4a373%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px top 50%;
-            background-size: 12px auto;
+        .option-radio {
+            display: none;
         }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-        
-        .option-btn {
-            padding: 12px 5px;
-            border: 1px solid var(--border-color);
-            background-color: #fff;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 15px;
-            color: var(--text-sub);
-            transition: all 0.25s;
-        }
-        
-        .option-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            box-shadow: 0 5px 15px rgba(109, 76, 65, 0.2);
-        }
-
-        .option-btn:disabled {
-            background-color: #f5f5f5;
-            color: #ddd !important;
-            cursor: not-allowed;
-            border-color: #eee;
-        }
-
-        .price-display {
-            text-align: right;
-            font-size: 1.3em;
-            color: var(--accent-color);
-            font-weight: 700;
-            margin: 35px 0 30px 0;
-            padding-top: 25px;
-            border-top: 1px dashed var(--border-color);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: var(--primary-color);
-            color: white;
-            padding: 18px;
-            border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            letter-spacing: 1.5px;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:disabled {
-            background: #d1d1d1;
-            cursor: not-allowed;
-        }
-
-        .success-msg { display: none; text-align: center; padding-top: 20px; }
-        .success-title { color: var(--primary-color); font-size: 1.6em; font-weight: 700; margin-bottom: 35px; }
-        
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .option-label {
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0.85rem;
+            border: 1px solid #C4C8C5;
+            border-radius: 0.375rem;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            color: #4A5555;
+            user-select: none;
         }
-
-        .action-btn { 
-            display: inline-block; 
-            width: 80%;
-            max-width: 250px;
-            padding: 15px 20px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            transition: all 0.3s;
+        .option-radio:checked + .option-label {
+            background-color: #4F6B6B;
+            color: #FFFFFF;
+            border-color: #4F6B6B;
+            font-weight: bold;
         }
-        
-        .check-result-btn { 
-            background-color: var(--accent-color); 
-            color: white; 
-            box-shadow: 0 5px 15px rgba(212, 163, 115, 0.2);
+        .hidden-option {
+            display: none !important;
         }
-        
-        .others-btn { 
-            background-color: transparent; 
-            color: var(--text-sub); 
-            border: 1px solid var(--border-color);
+        .disabled-topping {
+            opacity: 0.3;
+            pointer-events: none;
+            filter: grayscale(100%);
+        }
+        #alertOverlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(3px);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen p-4 md:p-8 flex justify-center items-start">
 
-<div class="container">
-    <header>
-        <p class="main-title">2/5(四)年會總綵排人員訂飲料</p>
-        <div class="deadline-notice" id="deadlineLabel">🕒 截止時間：2026/02/04 (三) 12:00</div>
-        <h1 class="brand-name">飲料：微平方</h1>
-    </header>
-
-    <form id="orderForm">
-        <div class="form-group">
-            <label for="username">訂購人姓名</label>
-            <input type="text" id="username" placeholder="請輸入全名" required>
-        </div>
-
-        <div class="form-group">
-            <label for="drink">選擇飲品</label>
-            <select id="drink" required>
-                <option value="" disabled selected>請選擇飲品...</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="topping">加入口感 (配料)</label>
-            <select id="topping">
-                <option value="無" data-price="0" selected>無</option>
-                <option value="波霸" data-price="5">波霸 (+5元)</option>
-                <option value="椰果" data-price="5">椰果 (+5元)</option>
-                <option value="粉粿" data-price="15">粉粿 (+15元)</option>
-                <option value="仙草凍" data-price="10">仙草凍 (+10元)</option>
-                <option value="愛玉凍" data-price="10">愛玉凍 (+10元)</option>
-                <option value="蘆薈" data-price="15">蘆薈 (+15元)</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>甜度 <span id="sugarNote" style="color:var(--error-color); font-size:0.8em; display:none;"></span></label>
-            <div class="options-grid" id="sugarOptions">
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">正常糖</button>
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">少糖</button>
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">半糖</button>
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">微糖</button>
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">一分糖</button>
-                <button type="button" class="option-btn sugar-opt" onclick="selectOption('sugar', this)">無糖</button>
-                <button type="button" class="option-btn sugar-opt" id="sugarFixedOpt" style="display:none;" onclick="selectOption('sugar', this)">甜度固定</button>
+    <!-- 統一格式的蓋台確認與引導彈出視窗 -->
+    <div id="alertOverlay" class="p-4">
+        <div id="alertCard" class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border-t-8 border-rose-600 space-y-4 text-center">
+            <div id="alertIconContainer" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-rose-100 text-rose-700">
+                <i id="alertIcon" data-lucide="check-circle" class="w-6 h-6"></i>
             </div>
-            <input type="hidden" id="sugar" required> 
-        </div>
-
-        <div class="form-group">
-            <label>冰塊 <span id="iceNote" style="color:var(--error-color); font-size:0.8em; display:none;"></span></label>
-            <div class="options-grid" id="iceOptions">
-                <button type="button" class="option-btn ice-opt" onclick="selectOption('ice', this)">正常冰</button>
-                <button type="button" class="option-btn ice-opt" onclick="selectOption('ice', this)">少冰</button>
-                <button type="button" class="option-btn ice-opt" onclick="selectOption('ice', this)">微冰</button>
-                <button type="button" class="option-btn ice-opt" onclick="selectOption('ice', this)">去冰</button>
-                <button type="button" class="option-btn ice-opt" id="hotOpt" onclick="selectOption('ice', this)">熱飲</button>
-                <button type="button" class="option-btn ice-opt" id="iceFixedOpt" style="display:none;" onclick="selectOption('ice', this)">冰量固定</button>
+            <div class="space-y-1">
+                <h3 id="alertTitle" class="text-xl font-bold text-gray-900 tracking-wider">點餐已成功送出</h3>
+                <p id="alertSubtitle" class="text-sm text-emerald-700 font-bold">資料已成功寫入 Google Excel 試算表</p>
             </div>
-            <input type="hidden" id="ice" required> 
-        </div>
+            
+            <div id="alertPayBox" class="bg-rose-50 p-5 rounded-xl my-2 border border-rose-200">
+                <p class="text-sm text-rose-800 font-bold">因超過預算，您需要自費補貼：</p>
+                <p class="text-4xl font-extrabold text-rose-700 my-2">
+                    $ <span id="alertPrice">0</span> <span class="text-xl font-bold">元</span>
+                </p>
+                <div class="mt-3 p-2 bg-white rounded-lg border border-rose-300 shadow-sm">
+                    <p class="text-sm text-rose-700 font-bold tracking-wide">請先等待宇均通知，再行補款</p>
+                </div>
+            </div>
 
-        <div class="price-display">
-            <span>金額</span>
-            <span>NT$<span id="priceLabel">0</span></span>
-        </div>
+            <div class="py-1">
+                <a id="sheetLinkBtn" href="https://docs.google.com/spreadsheets/d/1uUuc5NRWX_cqgkSUSy9mcp8lciBp5eWLBfyI0uEy4fs/edit?usp=sharing" 
+                   target="_blank" 
+                   class="w-full bg-[#4F6B6B] hover:bg-[#3D5454] text-white font-bold py-3.5 rounded-lg shadow-md transition-all tracking-wide text-base flex items-center justify-center gap-2 hover:scale-[1.02]">
+                    <i data-lucide="external-link" class="w-5 h-5"></i> 點此進入 Excel 確認我的餐點
+                </a>
+                <p class="text-xs text-gray-500 mt-1.5 font-medium">點擊將開啟新視窗，可直接查看總表寫入狀況</p>
+            </div>
 
-        <button type="submit" id="submitBtn" class="submit-btn">確認登記</button>
-    </form>
-    
-    <div class="success-msg" id="successMsg">
-        <div class="success-title">✅ 登記完成</div>
-        <div class="btn-group">
-            <a href="https://docs.google.com/spreadsheets/d/1ZpzttgDqG8vcOMQ5iqo6ZL6l1nUvSWXcgE6iqfw3tE4/edit?usp=sharing" target="_blank" class="action-btn check-result-btn">查看登記結果</a>
-            <a href="https://graceyiyo-cloud.github.io/order01.30/" class="action-btn others-btn">幫其他人登記</a>
+            <button type="button" id="closeAlertBtn" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg transition-colors tracking-wide text-base border border-gray-300">
+                關閉此視窗
+            </button>
         </div>
     </div>
-</div>
 
-<script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbxECKpWPU3Z7Lj16-OqZZAKrdwK9CYL2QrVf3cvZajXucSoYiIuKcIla1Bp6CoY6MHQ/exec"; 
-    const DEADLINE = new Date("2026-02-04T12:00:00");
+    <div class="w-full max-w-xl bg-white shadow-md rounded-xl overflow-hidden border border-[#C4C8C5]">
+        <div class="bg-[#4F6B6B] text-white p-6">
+            <h1 class="text-2xl font-bold tracking-wider flex items-center gap-2 mb-2">
+                <i data-lucide="coffee"></i> 先喝道 團購點餐
+            </h1>
+            <div class="text-sm space-y-1 mt-4 font-medium text-gray-100">
+                <p class="flex items-center gap-2"><i data-lucide="dollar-sign" class="w-4 h-4"></i> 每人預算 $150，超過需自行補貼</p>
+                <p class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 截止時間：115/06/12(五) 中午 12:00</p>
+                <p class="flex items-center gap-2"><i data-lucide="user" class="w-4 h-4"></i> 逾期或問題請洽：宇均</p>
+            </div>
+        </div>
 
-    const menuData = {
-        "季節限定：微愛季節": { "蜜桃粿粿": 65, "蜜桃烏龍": 55, "西柚粒粒": 60, "西柚烏龍": 55, "荔枝翡翠": 60, "荔枝烏龍": 55 },
-        "氣泡茶：微愛生氣": { 
-            "蜜桃愛生氣": 60, 
-            "荔枝海塩愛生氣": 60, 
-            "柚香愛生氣": 60, 
-            "西西里美式愛生氣": 60, 
-            "Honey愛生氣": 65, 
-            "梅果愛生氣": 55, 
-            "蘋果愛生氣": 55, 
-            "蔓越莓愛生氣": 55, 
-            "單純愛生氣": 40 
-        },
-        "激萃系列(甜度冰塊固定)": { "激萃金萱": 50, "激萃玫瑰鐵觀音": 50, "激萃白桃紅": 50 },
-        "純茶類": { "阿薩姆紅茶": 30, "台灣文山青": 30, "日式蕎麥綠茶": 30, "淺焙烏龍茶": 30, "古早味冬瓜茶": 30, "格林紅茶": 35 },
-        "微愛水果飲": { 
-            "微平方水果茶": 65, 
-            "翡翠檸檬": 55, 
-            "芭樂梅": 55, 
-            "芭樂檸檬": 55, 
-            "蜂蜜檸檬": 65, 
-            "百香果綠": 50, 
-            "百香QQ": 55, 
-            "金橘檸檬": 50, 
-            "檸檬愛玉凍": 55,
-            "百香愛玉凍": 55
-        },
-        "微平方特調系列": { 
-            "冰淬梅果綠": 45, 
-            "蜂蜜蘆薈": 65, 
-            "養樂多綠茶": 50, 
-            "檸檬微多多": 50, 
-            "百香微多多": 50,
-            "冬瓜檸檬": 50, 
-            "冬瓜金橘": 50,
-            "蘋果醋冰茶": 55, 
-            "蔓越莓冰茶": 55, 
-            "覓仙草": 55, 
-            "仙草甘茶": 35 
-        },
-        "厚奶蓋": { "紅茶厚奶蓋": 60, "綠茶厚奶蓋": 60, "青茶厚奶蓋": 60, "烏龍厚奶蓋": 60 },
-        "鮮奶茶": { 
-            "沉韻鮮奶紅": 60, 
-            "蕎麥鮮奶綠": 60, 
-            "波霸鮮奶茶": 60, 
-            "椰果鮮奶茶": 60,
-            "仙草凍鮮奶茶": 60, 
-            "鮮奶阿華田": 60 
-        },
-        "醇奶茶": { 
-            "沉韻奶紅": 50, 
-            "蕎麥奶綠": 50, 
-            "奶香烏龍": 50, 
-            "波霸奶茶": 50, 
-            "椰果奶茶": 50,
-            "仙草凍奶茶": 50 
-        }
-    };
+        <div id="mainContentArea">
+            <form id="orderForm" class="p-6 space-y-6">
+                <div class="space-y-2">
+                    <label class="block text-sm font-bold tracking-wide text-[#4F6B6B]">訂購人姓名</label>
+                    <input type="text" id="userName" required class="w-full px-4 py-2.5 text-base transition-colors" placeholder="請輸入您的姓名">
+                </div>
 
-    const sugarFixedList = ["荔枝海塩愛生氣", "梅果愛生氣", "單純愛生氣", "激萃金萱", "激萃玫瑰鐵觀音", "激萃白桃紅", "古早味冬瓜茶", "格林紅茶", "冬瓜檸檬", "冬瓜金橘"];
-    const iceFixedList = ["蜜桃愛生氣", "荔枝海塩愛生氣", "柚香愛生氣", "西西里美式愛生氣", "Honey愛生氣", "梅果愛生氣", "蘋果愛生氣", "蔓越莓愛生氣", "單純愛生氣", "激萃金萱", "激萃玫瑰鐵觀音", "激萃白桃紅"];
+                <div id="drinksContainer" class="space-y-6">
+                </div>
 
-    const drinkSelect = document.getElementById('drink');
-    const toppingSelect = document.getElementById('topping');
-    const priceLabel = document.getElementById('priceLabel');
-    const submitBtn = document.getElementById('submitBtn');
-    const sugarInput = document.getElementById('sugar');
-    const iceInput = document.getElementById('ice');
+                <button type="button" id="addDrinkBtn" class="w-full py-3.5 border-2 border-dashed border-[#4F6B6B] text-[#4F6B6B] hover:bg-[#EAEBE6] rounded-lg font-bold transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="plus-circle" class="w-5 h-5"></i> 新增下一杯飲料
+                </button>
 
-    Object.keys(menuData).forEach(cat => {
-        const gp = document.createElement('optgroup');
-        gp.label = cat;
-        Object.keys(menuData[cat]).forEach(d => {
-            const opt = document.createElement('option');
-            opt.value = d;
-            opt.textContent = d + " ($" + menuData[cat][d] + ")";
-            opt.dataset.price = menuData[cat][d];
-            opt.dataset.category = cat;
-            gp.appendChild(opt);
-        });
-        drinkSelect.appendChild(gp);
-    });
+                <div id="defaultSubmitArea" class="flex justify-between items-center border-t border-[#C4C8C5] pt-6">
+                    <div class="space-y-1 text-sm text-[#2C3333] font-medium">
+                        <p>已點選 <span id="totalCups" class="font-bold text-[#4F6B6B] text-base">0</span> 杯</p>
+                        <p class="text-base font-bold">總計金額：<span id="totalPrice" class="font-extrabold text-xl text-[#1A1A1A]">0</span> 元</p>
+                        <p id="remainingBox" class="text-emerald-700 font-bold flex items-center gap-1">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i> 剩餘預算：<span id="remainingPrice">150</span> 元
+                        </p>
+                        <p id="exceededBox" class="text-rose-600 font-bold flex items-center gap-1" style="display: none;">
+                            <i data-lucide="alert-circle" class="w-4 h-4"></i> 需自行補貼：<span id="exceededPrice">0</span> 元
+                        </p>
+                    </div>
+                    <button type="submit" id="mainSubmitBtn" class="bg-[#4F6B6B] hover:bg-[#3D5454] text-white px-6 py-3.5 rounded-lg font-bold transition-colors flex items-center gap-2 shadow-md">
+                        <i data-lucide="send" class="w-4 h-4"></i> 送出點餐
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    function checkDeadline() {
-        if (new Date() > DEADLINE) {
-            document.querySelectorAll('input, select, .option-btn').forEach(el => el.disabled = true);
-            submitBtn.textContent = "訂餐時間已截止，若需要加點請找宇均";
-            submitBtn.style.background = "#bc5e5e";
-            return false;
-        }
-        return true;
-    }
-    checkDeadline();
+    <script>
+        const DEADLINE = new Date('2026-06-12T12:00:00+08:00'); 
 
-    window.selectOption = function(type, btn) {
-        if (!checkDeadline()) return;
-        const container = document.getElementById(type + 'Options');
-        Array.from(container.getElementsByClassName('option-btn')).forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(type).value = btn.innerText;
-    };
-
-    drinkSelect.addEventListener('change', function() {
-        const drinkName = this.value;
-        const sugarBtns = document.querySelectorAll('.sugar-opt');
-        const iceBtns = document.querySelectorAll('.ice-opt');
-        const sugarNote = document.getElementById('sugarNote');
-        const iceNote = document.getElementById('iceNote');
-        const sugarFixedOpt = document.getElementById('sugarFixedOpt');
-        const iceFixedOpt = document.getElementById('iceFixedOpt');
-
-        sugarBtns.forEach(btn => { if(btn.id !== "sugarFixedOpt") { btn.disabled = false; btn.classList.remove('active'); } });
-        iceBtns.forEach(btn => { if(btn.id !== "iceFixedOpt") { btn.disabled = false; btn.classList.remove('active'); } });
-        sugarFixedOpt.style.display = "none";
-        iceFixedOpt.style.display = "none";
-        sugarNote.style.display = "none";
-        iceNote.style.display = "none";
-        sugarInput.value = "";
-        iceInput.value = "";
-
-        if (sugarFixedList.includes(drinkName)) {
-            sugarBtns.forEach(btn => { if(btn.id !== "sugarFixedOpt") btn.disabled = true; });
-            sugarFixedOpt.style.display = "inline-block";
-            sugarFixedOpt.classList.add('active');
-            sugarInput.value = "甜度固定";
-            sugarNote.textContent = "(甜度固定)";
-            sugarNote.style.display = "inline";
+        function checkTimeLock() {
+            const now = new Date();
+            if (now > DEADLINE) {
+                const contentArea = document.getElementById('mainContentArea');
+                contentArea.innerHTML = `
+                    <div class="p-10 text-center space-y-4 bg-[#FDFDFD]">
+                        <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-gray-200 text-[#4F6B6B] mb-4">
+                            <i data-lucide="lock" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-xl font-bold tracking-wider text-[#2C3333]">表單已截止填寫</h2>
+                        <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                            已經超過點餐期限 (115/06/12 中午 12:00)<br>若您仍需點餐，請直接與宇均聯繫。
+                        </p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return true; 
+            }
+            return false; 
         }
 
-        if (iceFixedList.includes(drinkName)) {
-            iceBtns.forEach(btn => { if(btn.id !== "iceFixedOpt") btn.disabled = true; });
-            iceFixedOpt.style.display = "inline-block";
-            iceFixedOpt.classList.add('active');
-            iceInput.value = "冰量固定";
-            iceNote.textContent = "(冰量固定)";
-            iceNote.style.display = "inline";
-        }
+        const ICE_ALL = "正常冰,少冰,微冰,去冰,溫飲,熱飲";
+        const ICE_COLD = "正常冰,少冰,微冰,去冰";         
+        const ICE_MIN_MICRO = "正常冰,少冰,微冰,溫飲,熱飲"; 
+        const ICE_MIN_MICRO_COLD = "正常冰,少冰,微冰";     
+        const ICE_LESS_ONLY = "少冰";                     
 
-        updatePrice();
-    });
-
-    toppingSelect.addEventListener('change', updatePrice);
-
-    function updatePrice() {
-        const dPrice = parseInt(drinkSelect.options[drinkSelect.selectedIndex]?.dataset.price || 0);
-        const tPrice = parseInt(toppingSelect.options[toppingSelect.selectedIndex]?.dataset.price || 0);
-        priceLabel.textContent = dPrice + tPrice;
-    }
-
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (!checkDeadline()) return;
-        if (!sugarInput.value || !iceInput.value) { alert('請選擇甜度與冰塊'); return; }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = '傳送中...';
-
-        const data = {
-            name: document.getElementById('username').value,
-            drink: drinkSelect.value,
-            topping: toppingSelect.value,
-            sugar: sugarInput.value,
-            ice: iceInput.value,
-            price: priceLabel.textContent
+        const menuData = {
+            "莊園好茶": [
+                {name: "錫蘭高地莊園紅茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "花開茉綠茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "四季春茶王", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "糯烏龍", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "輕焙穀麥茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "慢熬冬瓜茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "英式蜜桃風味茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "皇家伯爵茶", price: 35, ice: ICE_ALL, toppings: true},
+                {name: "英式玫瑰特調茶", price: 40, ice: ICE_ALL, toppings: true}
+            ],
+            "英式鮮奶茶": [
+                {name: "英式玫瑰拿鐵", price: 65, ice: ICE_ALL, toppings: true},
+                {name: "蜜桃風味拿鐵", price: 65, ice: ICE_ALL, toppings: true},
+                {name: "錫蘭莊園紅茶拿鐵", price: 60, ice: ICE_ALL, toppings: true},
+                {name: "花開茉綠茶拿鐵", price: 60, ice: ICE_ALL, toppings: true},
+                {name: "糯烏龍拿鐵", price: 60, ice: ICE_ALL, toppings: true},
+                {name: "皇家伯爵拿鐵", price: 65, ice: ICE_ALL, toppings: true},
+                {name: "冬瓜糯烏龍拿鐵", price: 65, ice: ICE_ALL, toppings: true},
+                {name: "輕焙穀麥拿鐵", price: 65, ice: ICE_ALL, toppings: true},
+                {name: "巧克力伯爵拿鐵", price: 65, ice: ICE_ALL, toppings: true}
+            ],
+            "特調 (最低微冰)": [
+                {name: "玫瑰水 (僅冷飲)", price: 35, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "檸夏玫瑰冰茶 (僅冷飲)", price: 60, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "冬瓜糯烏龍", price: 40, ice: ICE_MIN_MICRO, toppings: true},
+                {name: "檸檬糯烏龍 (僅冷飲)", price: 55, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "冬瓜檸檬 (僅冷飲)", price: 55, ice: ICE_MIN_MICRO_COLD, toppings: true}
+            ],
+            "梅好時光": [
+                {name: "青梅四季春 (僅冷飲)", price: 50, ice: ICE_COLD, toppings: true},
+                {name: "鹹酸甜麻粿 (僅冷飲)", price: 65, ice: ICE_COLD, toppings: true}
+            ],
+            "招牌水果茶 (最低微冰)": [
+                {name: "英式水果茶", price: 65, ice: ICE_MIN_MICRO, toppings: true},
+                {name: "貴妃錫蘭 (僅冷飲)", price: 65, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "貴妃四季 (僅冷飲)", price: 65, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "鮮橙翡翠 (僅冷飲)", price: 70, ice: ICE_MIN_MICRO_COLD, toppings: true},
+                {name: "蜜桃風味水果茶", price: 65, ice: ICE_MIN_MICRO, toppings: true},
+                {name: "皇家伯爵水果茶", price: 65, ice: ICE_MIN_MICRO, toppings: true},
+                {name: "英式玫瑰水果茶", price: 65, ice: ICE_MIN_MICRO, toppings: true}
+            ],
+            "精選奶茶": [
+                {name: "花開茉綠奶茶", price: 50, ice: ICE_ALL, toppings: true},
+                {name: "錫蘭高地珍珠奶茶", price: 60, ice: ICE_ALL, toppings: true},
+                {name: "英式玫瑰奶茶", price: 55, ice: ICE_ALL, toppings: true},
+                {name: "輕焙穀麥奶茶", price: 55, ice: ICE_ALL, toppings: true},
+                {name: "錫蘭高地莊園奶茶", price: 50, ice: ICE_ALL, toppings: true},
+                {name: "蜜桃風味奶茶", price: 55, ice: ICE_ALL, toppings: true},
+                {name: "皇家伯爵奶茶", price: 55, ice: ICE_ALL, toppings: true},
+                {name: "巧克力伯爵奶茶", price: 60, ice: ICE_ALL, toppings: true}
+            ],
+            "太妃厚奶系列 (僅冷飲)": [
+                {name: "太妃蜜桃風味厚奶霜", price: 75, ice: ICE_COLD, toppings: true},
+                {name: "太妃風味伯爵厚奶霜", price: 75, ice: ICE_COLD, toppings: true},
+                {name: "太妃風味錫蘭厚奶霜", price: 75, ice: ICE_COLD, toppings: true}
+            ],
+            "朵朵海鹽奶蓋 (固定少冰/無加料)": [
+                {name: "朵朵奶蓋伯爵茶", price: 60, ice: ICE_LESS_ONLY, toppings: false},
+                {name: "朵朵奶蓋蜜桃風味茶", price: 60, ice: ICE_LESS_ONLY, toppings: false},
+                {name: "朵朵奶蓋四季春", price: 60, ice: ICE_LESS_ONLY, toppings: false}
+            ],
+            "硬頸乳茶 (僅冷飲/含麻粿)": [
+                {name: "硬頸奶茶", price: 65, ice: ICE_COLD, toppings: true},
+                {name: "硬頸乳茶", price: 75, ice: ICE_COLD, toppings: true}
+            ]
         };
 
-        fetch(SCRIPT_URL, { method: 'POST', body: new URLSearchParams(data), mode: 'no-cors' })
-        .then(() => {
-            document.getElementById('orderForm').style.display = 'none';
-            document.getElementById('successMsg').style.display = 'block';
-            window.scrollTo(0, 0);
-        });
-    });
-</script>
+        let menuOptionsHtml = `<option value="" disabled selected>請選擇飲品...</option>`;
+        for (const [category, drinks] of Object.entries(menuData)) {
+            menuOptionsHtml += `<optgroup label="--- ${category} ---">`;
+            drinks.forEach(drink => {
+                menuOptionsHtml += `<option value="${drink.name}" data-price="${drink.price}" data-ice="${drink.ice}" data-toppings="${drink.toppings}">${drink.name} ($${drink.price})</option>`;
+            });
+            menuOptionsHtml += `</optgroup>`;
+        }
+
+        const container = document.getElementById('drinksContainer');
+        const alertOverlay = document.getElementById('alertOverlay');
+        const alertPrice = document.getElementById('alertPrice');
+        const closeAlertBtn = document.getElementById('closeAlertBtn');
+        let cupIndex = 0;
+
+        function createDrinkBlock() {
+            cupIndex++;
+            const currentId = cupIndex;
+            const block = document.createElement('div');
+            block.className = "drink-item border border-[#C4C8C5] p-5 rounded-lg bg-[#FAFAF8] relative space-y-5 shadow-sm";
+            block.id = `cup_block_${currentId}`;
+
+            block.innerHTML = `
+                <div class="flex justify-between items-center border-b border-[#EAEBE6] pb-3">
+                    <span class="font-bold text-sm text-[#4F6B6B] tracking-wider cup-label">N/A</span>
+                    <button type="button" class="delete-btn text-rose-600 hover:text-rose-800 text-sm font-bold flex items-center gap-1 transition-colors" onclick="removeDrinkBlock(${currentId})">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i> 刪除此杯
+                    </button>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="block text-xs font-bold tracking-wide text-[#707A7A]">飲品品項</label>
+                    <select class="drink-select w-full px-4 py-2.5 text-base transition-colors cursor-pointer" required onchange="handleDrinkChange(${currentId})">
+                        ${menuOptionsHtml}
+                    </select>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold tracking-wide text-[#707A7A]">甜度調整</label>
+                    <div class="flex flex-wrap gap-2 sugar-group">
+                        <input type="radio" id="sugar_${currentId}_1" name="sugar_${currentId}" value="正常" class="option-radio" checked>
+                        <label for="sugar_${currentId}_1" class="option-label">正常</label>
+                        <input type="radio" id="sugar_${currentId}_2" name="sugar_${currentId}" value="半糖" class="option-radio">
+                        <label for="sugar_${currentId}_2" class="option-label">半糖</label>
+                        <input type="radio" id="sugar_${currentId}_3" name="sugar_${currentId}" value="微糖" class="option-radio">
+                        <label for="sugar_${currentId}_3" class="option-label">微糖</label>
+                        <input type="radio" id="sugar_${currentId}_4" name="sugar_${currentId}" value="微微糖" class="option-radio">
+                        <label for="sugar_${currentId}_4" class="option-label">微微糖</label>
+                        <input type="radio" id="sugar_${currentId}_5" name="sugar_${currentId}" value="無糖" class="option-radio">
+                        <label for="sugar_${currentId}_5" class="option-label">無糖</label>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold tracking-wide text-[#707A7A]">冰量調整</label>
+                    <div class="flex flex-wrap gap-2 ice-group">
+                        <input type="radio" id="ice_${currentId}_1" name="ice_${currentId}" value="正常冰" class="option-radio ice-radio" checked onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_1" class="option-label ice-label">正常冰</label>
+                        <input type="radio" id="ice_${currentId}_2" name="ice_${currentId}" value="少冰" class="option-radio ice-radio" onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_2" class="option-label ice-label">少冰</label>
+                        <input type="radio" id="ice_${currentId}_3" name="ice_${currentId}" value="微冰" class="option-radio ice-radio" onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_3" class="option-label ice-label">微冰</label>
+                        <input type="radio" id="ice_${currentId}_4" name="ice_${currentId}" value="去冰" class="option-radio ice-radio" onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_4" class="option-label ice-label">去冰</label>
+                        <input type="radio" id="ice_${currentId}_5" name="ice_${currentId}" value="溫飲" class="option-radio ice-radio" onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_5" class="option-label ice-label">溫飲</label>
+                        <input type="radio" id="ice_${currentId}_6" name="ice_${currentId}" value="熱飲" class="option-radio ice-radio" onchange="evalToppings(${currentId})">
+                        <label for="ice_${currentId}_6" class="option-label ice-label">熱飲</label>
+                    </div>
+                </div>
+
+                <div class="space-y-2 toppings-area">
+                    <label class="block text-xs font-bold tracking-wide text-[#707A7A]">額外加料 (奶蓋系列除外)</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm font-medium toppings-container" onchange="calculateTotal()">
+                        <label class="topping-label flex items-center gap-2 cursor-pointer p-2 hover:bg-[#EAEBE6] rounded border border-transparent" data-type="all">
+                            <input type="checkbox" value="10" data-name="蜜香珍珠" class="accent-[#4F6B6B] w-4 h-4"> 
+                            <span class="flex-1">蜜香珍珠 (+$10)</span>
+                        </label>
+                        <label class="topping-label flex items-center gap-2 cursor-pointer p-2 hover:bg-[#EAEBE6] rounded border border-transparent" data-type="cold-only">
+                            <input type="checkbox" value="10" data-name="奇亞雪凍" class="accent-[#4F6B6B] w-4 h-4"> 
+                            <span class="flex-1">奇亞雪凍 (+$10) <span class="text-xs text-gray-500 ml-1">僅限冰飲</span></span>
+                        </label>
+                        <label class="topping-label flex items-center gap-2 cursor-pointer p-2 hover:bg-[#EAEBE6] rounded border border-transparent" data-type="cold-only">
+                            <input type="checkbox" value="15" data-name="麻粿" class="accent-[#4F6B6B] w-4 h-4"> 
+                            <span class="flex-1">麻粿 (+$15) <span class="text-xs text-gray-500 ml-1">僅限冰飲</span></span>
+                        </label>
+                        
+                        <label class="topping-label flex items-center gap-2 cursor-pointer p-2 hover:bg-[#EAEBE6] rounded border border-transparent" data-type="cold-only" id="double_label_${currentId}">
+                            <input type="checkbox" value="15" data-name="雙料" class="accent-[#4F6B6B] w-4 h-4 double-main-cb" onchange="toggleDoublePanel(${currentId})"> 
+                            <span class="flex-1">雙料 (+$15) <span class="text-xs text-gray-500 ml-1">任選2種，僅限冰飲</span></span>
+                        </label>
+
+                        <div id="double_panel_${currentId}" class="col-span-1 md:col-span-2 bg-[#EAEBE6] p-3 rounded-lg space-y-2 border border-[#C4C8C5]" style="display: none;">
+                            <p class="text-xs font-bold text-[#4F6B6B] flex items-center gap-1">
+                                <i data-lucide="check-square" class="w-3.5 h-3.5"></i> 請勾選其中 2 種配料：
+                            </p>
+                            <div class="grid grid-cols-3 gap-2 text-xs double-sub-container">
+                                <label class="flex items-center gap-1.5 cursor-pointer p-1"><input type="checkbox" data-subname="麻粿" class="accent-[#4F6B6B] w-3.5 h-3.5 double-sub-cb" onchange="checkDoubleLimit(${currentId}, this)"> 麻粿</label>
+                                <label class="flex items-center gap-1.5 cursor-pointer p-1"><input type="checkbox" data-subname="珍珠" class="accent-[#4F6B6B] w-3.5 h-3.5 double-sub-cb" onchange="checkDoubleLimit(${currentId}, this)"> 珍珠</label>
+                                <label class="flex items-center gap-1.5 cursor-pointer p-1"><input type="checkbox" data-subname="雪凍" class="accent-[#4F6B6B] w-3.5 h-3.5 double-sub-cb" onchange="checkDoubleLimit(${currentId}, this)"> 雪凍</label>
+                            </div>
+                        </div>
+                        
+                        <label class="topping-label flex items-center gap-2 cursor-pointer p-2 hover:bg-[#EAEBE6] rounded border border-transparent md:col-span-2" data-type="rose-cold-only">
+                            <input type="checkbox" value="39" data-name="玫瑰plus" class="accent-[#4F6B6B] w-4 h-4"> 
+                            <span class="flex-1">玫瑰plus (+$39) <span class="text-xs text-gray-500 ml-1">限玫瑰系列冰飲</span></span>
+                        </label>
+                    </div>
+
+                    <p class="toppings-warning text-xs text-rose-600 mt-2 font-bold flex items-center gap-1" style="display: none;">
+                        <i data-lucide="info" class="w-3.5 h-3.5"></i> 此系列為保持最佳風味，不提供加料
+                    </p>
+                </div>
+            `;
+            container.appendChild(block);
+            updateLabels();
+            lucide.createIcons();
+            calculateTotal();
+        }
+
+        window.removeDrinkBlock = function(id) {
+            document.getElementById(`cup_block_${id}`).remove();
+            updateLabels();
+            calculateTotal();
+        }
+
+        window.calculateTotal = function() {
+            let total = 0;
+            const items = container.querySelectorAll('.drink-item');
+            
+            items.forEach(item => {
+                const select = item.querySelector('.drink-select');
+                const selectedOption = select.options[select.selectedIndex];
+                
+                if (selectedOption && selectedOption.dataset.price) {
+                    total += parseInt(selectedOption.dataset.price);
+                }
+                
+                const checkedBoxes = item.querySelectorAll('.toppings-container input[type="checkbox"]:not(.double-sub-cb):checked');
+                checkedBoxes.forEach(cb => {
+                    total += parseInt(cb.value);
+                });
+            });
+
+            if(document.getElementById('totalPrice')) {
+                document.getElementById('totalPrice').textContent = total;
+                const budget = 150;
+                const remainingBox = document.getElementById('remainingBox');
+                const exceededBox = document.getElementById('exceededBox');
+
+                if (total <= budget) {
+                    remainingBox.style.display = 'flex';
+                    exceededBox.style.display = 'none';
+                    document.getElementById('remainingPrice').textContent = budget - total;
+                    document.getElementById('exceededPrice').textContent = 0;
+                } else {
+                    remainingBox.style.display = 'none';
+                    exceededBox.style.display = 'flex';
+                    document.getElementById('remainingPrice').textContent = 0;
+                    document.getElementById('exceededPrice').textContent = total - budget;
+                }
+            }
+        }
+
+        function updateLabels() {
+            const items = container.querySelectorAll('.drink-item');
+            items.forEach((item, index) => {
+                item.querySelector('.cup-label').textContent = `第 ${index + 1} 杯`;
+                item.querySelector('.delete-btn').style.display = items.length === 1 ? 'none' : 'flex';
+            });
+            if(document.getElementById('totalCups')) {
+                document.getElementById('totalCups').textContent = items.length;
+            }
+        }
+
+        window.handleDrinkChange = function(id) {
+            const block = document.getElementById(`cup_block_${id}`);
+            const select = block.querySelector('.drink-select');
+            const option = select.options[select.selectedIndex];
+            
+            if(!option || !option.value) return;
+
+            const allowedIce = option.dataset.ice.split(',');
+            const iceRadios = block.querySelectorAll('.ice-radio');
+            let firstVisibleId = null;
+            let isCurrentCheckedValid = false;
+
+            iceRadios.forEach(radio => {
+                const label = block.querySelector(`label[for="${radio.id}"]`);
+                if (allowedIce.includes(radio.value)) {
+                    label.classList.remove('hidden-option');
+                    if(!firstVisibleId) firstVisibleId = radio.id;
+                    if(radio.checked) isCurrentCheckedValid = true;
+                } else {
+                    label.classList.add('hidden-option');
+                    radio.checked = false; 
+                }
+            });
+            
+            if (!isCurrentCheckedValid && firstVisibleId) {
+                document.getElementById(firstVisibleId).checked = true;
+            }
+
+            evalToppings(id);
+        }
+
+        window.toggleDoublePanel = function(id) {
+            const block = document.getElementById(`cup_block_${id}`);
+            const mainCb = block.querySelector('.double-main-cb');
+            const panel = document.getElementById(`double_panel_${id}`);
+            
+            if (mainCb.checked) {
+                panel.style.display = 'block';
+            } else {
+                panel.style.display = 'none';
+                block.querySelectorAll('.double-sub-cb').forEach(cb => cb.checked = false);
+            }
+            calculateTotal();
+        }
+
+        window.checkDoubleLimit = function(id, currentCheckbox) {
+            const block = document.getElementById(`cup_block_${id}`);
+            const checkedSubs = block.querySelectorAll('.double-sub-cb:checked');
+            
+            if (checkedSubs.length > 2) {
+                alert('雙料只能選擇其中 2 種配料');
+                currentCheckbox.checked = false; 
+            }
+            calculateTotal();
+        }
+
+        window.evalToppings = function(id) {
+            const block = document.getElementById(`cup_block_${id}`);
+            const select = block.querySelector('.drink-select');
+            const option = select.options[select.selectedIndex];
+            
+            if(!option || !option.value) return;
+
+            const selectedIceRadio = block.querySelector('.ice-radio:checked');
+            const currentIce = selectedIceRadio ? selectedIceRadio.value : '';
+            const isHot = (currentIce === '溫飲' || currentIce === '熱飲');
+            const drinkName = option.value;
+            const isRoseSeries = drinkName.includes('玫瑰');
+            const allowToppings = option.dataset.toppings === 'true';
+            
+            const toppingLabels = block.querySelectorAll('.topping-label');
+            const warningText = block.querySelector('.toppings-warning');
+
+            toppingLabels.forEach(label => {
+                const checkbox = label.querySelector('input');
+                const conditionType = label.dataset.type;
+                let shouldEnable = false;
+
+                if (allowToppings) {
+                    if (conditionType === 'all') {
+                        shouldEnable = true;
+                    } else if (conditionType === 'cold-only') {
+                        shouldEnable = !isHot;
+                    } else if (conditionType === 'rose-cold-only') {
+                        shouldEnable = !isHot && isRoseSeries;
+                    }
+                }
+
+                if (shouldEnable) {
+                    label.classList.remove('disabled-topping');
+                } else {
+                    label.classList.add('disabled-topping');
+                    checkbox.checked = false; 
+                }
+            });
+            
+            const mainCb = block.querySelector('.double-main-cb');
+            if (!mainCb.checked) {
+                document.getElementById(`double_panel_${id}`).style.display = 'none';
+                block.querySelectorAll('.double-sub-cb').forEach(cb => cb.checked = false);
+            }
+
+            warningText.style.display = allowToppings ? 'none' : 'flex';
+            calculateTotal();
+        }
+
+        if (!checkTimeLock()) {
+            document.getElementById('addDrinkBtn').addEventListener('click', createDrinkBlock);
+
+            document.getElementById('orderForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const items = container.querySelectorAll('.drink-item');
+                let isValid = true;
+                let errorMsg = "";
+
+                items.forEach((item, index) => {
+                    const select = item.querySelector('.drink-select');
+                    if(!select.value) {
+                        isValid = false;
+                        errorMsg = '請確認每杯飲料皆已選取品項';
+                        return;
+                    }
+
+                    const mainCb = item.querySelector('.double-main-cb');
+                    if (mainCb.checked) {
+                        const checkedSubs = item.querySelectorAll('.double-sub-cb:checked');
+                        if (checkedSubs.length !== 2) {
+                            isValid = false;
+                            errorMsg = `第 ${index + 1} 杯飲料選擇了「雙料」，必須剛好勾選 2 種配料`;
+                        }
+                    }
+                });
+
+                if(!isValid) {
+                    alert(errorMsg);
+                    return;
+                }
+
+                executeFinalSubmit();
+            });
+
+            closeAlertBtn.addEventListener('click', () => {
+                alertOverlay.style.display = 'none';
+                document.getElementById('orderForm').reset();
+                container.innerHTML = '';
+                createDrinkBlock();
+                window.scrollTo(0, 0);
+            });
+
+            createDrinkBlock();
+        }
+
+        function executeFinalSubmit() {
+            const userName = document.getElementById('userName').value;
+            const items = container.querySelectorAll('.drink-item');
+            let orderSummary = [];
+
+            items.forEach((item, index) => {
+                const select = item.querySelector('.drink-select');
+                const sugar = item.querySelector(`.option-radio[name^="sugar_"]:checked`).value;
+                const ice = item.querySelector(`.option-radio[name^="ice_"]:checked`).value;
+                
+                let toppingsList = Array.from(item.querySelectorAll('.toppings-container input[type="checkbox"]:not(.double-sub-cb):checked'))
+                                      .map(cb => cb.dataset.name)
+                                      .filter(name => name !== '雙料');
+                
+                const mainCb = item.querySelector('.double-main-cb');
+                if (mainCb.checked) {
+                    const subs = Array.from(item.querySelectorAll('.double-sub-cb:checked')).map(cb => cb.dataset.subname).join('+');
+                    toppingsList.push(`雙料(${subs})`);
+                }
+
+                orderSummary.push({
+                    cup: index + 1,
+                    name: select.value,
+                    sugar: sugar,
+                    ice: ice,
+                    toppings: toppingsList.join(', ') || '無'
+                });
+            });
+
+            const total = document.getElementById('totalPrice').textContent;
+            const selfPay = parseInt(document.getElementById('exceededPrice').textContent) || 0;
+
+            const resultPayload = {
+                name: userName,
+                total_cups: orderSummary.length,
+                total_price: total,
+                self_pay: selfPay,
+                orders: orderSummary
+            };
+
+            const GAS_URL = 'https://script.google.com/macros/s/AKfycbxLtGGb28NvqeYAmuDSTK_7JkhH2H80vtjz2Q2FpLu7yMtLD9dNtDzTiY4NyN3IUMFS/exec'; 
+
+            const mainSubmitBtn = document.getElementById('mainSubmitBtn');
+            if(mainSubmitBtn) {
+                mainSubmitBtn.disabled = true;
+                mainSubmitBtn.innerHTML = '資料傳送中...';
+            }
+
+            fetch(GAS_URL, {
+                method: 'POST',
+                body: JSON.stringify(resultPayload),
+                headers: { 'Content-Type': 'text/plain' }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    const card = document.getElementById('alertCard');
+                    const iconContainer = document.getElementById('alertIconContainer');
+                    const icon = document.getElementById('alertIcon');
+                    const payBox = document.getElementById('alertPayBox');
+                    
+                    if (selfPay > 0) {
+                        alertPrice.textContent = selfPay;
+                        payBox.style.display = 'block';
+                        card.className = "bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border-t-8 border-rose-600 space-y-4 text-center";
+                        iconContainer.className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-rose-100 text-rose-700";
+                        icon.setAttribute('data-lucide', 'alert-triangle');
+                        document.getElementById('alertTitle').textContent = "點餐已成功送出";
+                        document.getElementById('alertSubtitle').textContent = "資料已成功寫入 Google Excel 試算表";
+                    } else {
+                        payBox.style.display = 'none';
+                        card.className = "bg-white rounded-xl shadow-2xl max-w-md w-full p-6 border-t-8 border-emerald-600 space-y-4 text-center";
+                        iconContainer.className = "mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-emerald-100 text-emerald-700";
+                        icon.setAttribute('data-lucide', 'check-circle');
+                        document.getElementById('alertTitle').textContent = "點餐成功送出";
+                        document.getElementById('alertSubtitle').textContent = "資料已同步儲存，感謝您的填寫";
+                    }
+                    
+                    alertOverlay.style.display = 'flex';
+                } else {
+                    alert('系統寫入錯誤：' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('網路連線逾時，或設定有誤');
+            })
+            .finally(() => {
+                if(mainSubmitBtn) {
+                    mainSubmitBtn.disabled = false;
+                    mainSubmitBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> 送出點餐';
+                    lucide.createIcons();
+                }
+            });
+        }
+
+        lucide.createIcons();
+    </script>
 </body>
 </html>
